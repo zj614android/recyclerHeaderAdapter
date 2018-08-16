@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,9 +19,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         mRecyclerView = findViewById(R.id.rcv);
+
         mRecyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this, LinearLayoutManager.VERTICAL,false));
+
         List arr = new ArrayList();
-        for (int i = 0; i < 15; i++) {
+        for (int i = 0; i < 35; i++) {
             arr.add("" + i);
         }
 
@@ -31,6 +34,10 @@ public class MainActivity extends AppCompatActivity {
             }
         };
 
+//        mMyAdapter.addHeaderView(View.inflate());
+        TextView t2 = new TextView(this);
+        t2.setText("Header 2");
+        mMyAdapter.addHeaderView(t2);
         mRecyclerView.setAdapter(mMyAdapter);
     }
 
